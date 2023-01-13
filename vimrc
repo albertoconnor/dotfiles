@@ -51,6 +51,12 @@ call plug#begin('~/.config/nvim/plugged')
  Plug 'junegunn/fzf.vim'
  Plug 'airblade/vim-rooter'
 
+ Plug 'nvie/vim-flake8'
+
+" Flake8 on save
+
+autocmd BufWritePost *.py call flake8#Flake8()
+
 " Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
