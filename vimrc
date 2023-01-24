@@ -1,4 +1,4 @@
-set formatoptions+=o    " Continue comment marker in new lines.
+set formatoptions=o    " Continue comment marker in new lines.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
@@ -61,11 +61,10 @@ autocmd BufWritePost *.py call flake8#Flake8()
 
 call plug#end()
 
-
 colorscheme sobrio
 
-
 map <C-t> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " https://stackoverflow.com/questions/11993851/how-to-delete-not-cut-in-vim
 " Stop cutting whenever I delete when I am trying move text...
