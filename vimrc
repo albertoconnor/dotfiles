@@ -7,7 +7,7 @@ set showcmd                     " Show me what I'm typing
 set showmode                    " Show current mode.
 set noswapfile                  " Don't use swapfile
 set nobackup            	" Don't create annoying backup files
-set encoding=utf-8              " Set default encoding to UTF-8
+set encoding=UTF-8              " Set default encoding to UTF-8
 set autowrite                   " Automatically save before :next, :make etc.
 set autoread                    " Automatically reread changed files without asking me anything
 set laststatus=2
@@ -38,6 +38,7 @@ set ttyfast                 " Speed up scrolling in Vim
 
 call plug#begin('~/.config/nvim/plugged')
 "Define your plugins here
+ Plug 'sainnhe/sonokai'
  Plug 'dracula/vim'
  Plug 'ryanoasis/vim-devicons'
  Plug 'scrooloose/nerdtree'
@@ -45,23 +46,27 @@ call plug#begin('~/.config/nvim/plugged')
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'airblade/vim-gitgutter'
  Plug 'vim-airline/vim-airline'
- Plug 'elvessousa/sobrio'
 
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
  Plug 'airblade/vim-rooter'
 
  Plug 'nvie/vim-flake8'
+" Plug 'neovim/nvim-lspconfig'
+call plug#end()
 
 " Flake8 on save
 
 autocmd BufWritePost *.py call flake8#Flake8()
 
-" Plug 'neovim/nvim-lspconfig'
+" Note working, trying to get icon to show. Install droid via brew
+set guifont=DroidSansMono_Nerd_Font:h11
 
-call plug#end()
+colorscheme sonokai
 
-colorscheme sobrio
+let g:sonokai_style = 'maia'
+let g:sonokai_better_performance = 1
+
 
 map <C-t> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
