@@ -53,7 +53,10 @@ call plug#begin('~/.config/nvim/plugged')
 
  Plug 'nvie/vim-flake8'
 " Plug 'neovim/nvim-lspconfig'
-call plug#end()
+
+ Plug 'github/copilot.vim'
+
+ call plug#end()
 
 " Flake8 on save
 
@@ -176,3 +179,10 @@ command! -bang -nargs=* GGrep
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
 " End fzf
+
+" Copilot
+let g:copilot_filetypes = {
+    \ 'gitcommit': v:true,
+    \ 'markdown': v:true,
+    \ 'python': v:true,
+    \ }
