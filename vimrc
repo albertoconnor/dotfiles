@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'airblade/vim-gitgutter'
  Plug 'vim-airline/vim-airline'
+ Plug 'dense-analysis/ale'
 
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
@@ -58,9 +59,10 @@ call plug#begin('~/.config/nvim/plugged')
 
  call plug#end()
 
-" Flake8 on save
-
-autocmd BufWritePost *.py call flake8#Flake8()
+ " Linters
+let g:ale_linters = { "python": ["ruff"] }
+" Fixers
+let g:ale_fixers = { "python": ["ruff", "ruff_format"] }
 
 " Note working, trying to get icon to show. Install droid via brew
 set guifont=DroidSansMono_Nerd_Font:h11
